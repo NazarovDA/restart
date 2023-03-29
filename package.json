@@ -13,6 +13,7 @@
   "dependencies": {
     "@prisma/client": "^4.11.0",
     "@types/node": "^18.15.7",
+    "nuxt-swiper": "^1.0.1",
     "prisma": "^4.11.0",
     "zod": "^3.21.4"
   }
