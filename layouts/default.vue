@@ -1,8 +1,9 @@
+
 <template>
   <div id="wrapper">
     <section class="row header">
       <div class="cntr">
-        <NuxtLink to="@"
+        <NuxtLink to="/"
           ><img
             src="@/img/logo.png"
             alt="Торговый Дом Рестарт"
@@ -41,24 +42,26 @@
           class="nav clearfix"
         >
           <li id="menu-item-23" class="button">
-            <NuxtLink to="about/">О компании</NuxtLink>
+            <NuxtLink to="/about">О компании</NuxtLink>
           </li>
           <li id="menu-item-22" class="button">
-            <NuxtLink to="price/">Стоимость</NuxtLink>
+            <NuxtLink to="/price">Стоимость</NuxtLink>
           </li>
           <li id="menu-item-24" class="button">
-            <NuxtLink to="ral/">Каталог RAL</NuxtLink>
+            <NuxtLink to="/ral">Каталог RAL</NuxtLink>
           </li>
           <li id="menu-item-20" class="button">
-            <NuxtLink to="contacts/">Контакты</NuxtLink>
+            <NuxtLink to="/contacts">Контакты</NuxtLink>
           </li>
           <li id="menu-item-21" class="button">
-            <NuxtLink to="map/">Схема проезда</NuxtLink>
+            <NuxtLink to="/map">Схема проезда</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
-    <slot />
+    <section>
+      <slot />
+    </section>
     <section class="row footer">
       <div class="cntr">
         <img
@@ -346,7 +349,7 @@ div.cntr {
   content: "";
   width: 4px;
   position: absolute;
-  height: 100px;
+  height: 60px;
   border: 2px solid #fff;
   border-top: none;
   border-bottom: none;
@@ -412,7 +415,6 @@ div.cntr {
 
 .footer {
   background-color: #454545;
-  position: absolute;
   bottom: 0;
   left: 0;
 }
