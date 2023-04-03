@@ -631,30 +631,6 @@
     unimport "^3.0.2"
     untyped "^1.2.2"
 
-"@nuxt/kit@^3.2.3":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.3.2.tgz#e3cd19c0f5cd0f124fff6f659a5f25002f808946"
-  integrity sha512-mHucMYuN/nVJp0p+L6ezzEls8Y1PerAXCJi01lS3Z5ozz+l2OusEfes8EBxWcy3x0C5465ignXCujQs3/LAvnQ==
-  dependencies:
-    "@nuxt/schema" "3.3.2"
-    c12 "^1.2.0"
-    consola "^2.15.3"
-    defu "^6.1.2"
-    globby "^13.1.3"
-    hash-sum "^2.0.0"
-    ignore "^5.2.4"
-    jiti "^1.18.2"
-    knitwork "^1.0.0"
-    lodash.template "^4.5.0"
-    mlly "^1.2.0"
-    pathe "^1.1.0"
-    pkg-types "^1.0.2"
-    scule "^1.0.0"
-    semver "^7.3.8"
-    unctx "^2.1.2"
-    unimport "^3.0.4"
-    untyped "^1.2.2"
-
 "@nuxt/schema@3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@nuxt/schema/-/schema-3.3.1.tgz#305d0db9c535f64fad3aa1a7c985410e733f9ff0"
@@ -672,25 +648,6 @@
     std-env "^3.3.2"
     ufo "^1.1.1"
     unimport "^3.0.2"
-    untyped "^1.2.2"
-
-"@nuxt/schema@3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@nuxt/schema/-/schema-3.3.2.tgz#c567dfaf099c65ae2fce4b5d1bcf43a94239a4c6"
-  integrity sha512-M2X/iwdX4hct31A7LA2+e41F91VZUXmwS5sZ03G49RnZdEXHMOKBO67e1d+5uxYmRD6eM/EyxWdPVgyLf6wocw==
-  dependencies:
-    c12 "^1.2.0"
-    create-require "^1.1.1"
-    defu "^6.1.2"
-    hookable "^5.5.0"
-    jiti "^1.18.2"
-    pathe "^1.1.0"
-    pkg-types "^1.0.2"
-    postcss-import-resolver "^2.0.0"
-    scule "^1.0.0"
-    std-env "^3.3.2"
-    ufo "^1.1.1"
-    unimport "^3.0.4"
     untyped "^1.2.2"
 
 "@nuxt/telemetry@^2.1.10":
@@ -3043,14 +3000,6 @@ nuxi@3.3.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt-swiper@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/nuxt-swiper/-/nuxt-swiper-1.0.1.tgz#ecc414587d5f3126e94dcff3bb936c05861657ab"
-  integrity sha512-NHrPnnxJtM9asKkvxJlyKUhgO/1o3p4ghX+j6xAq1+A2qm8C7l/7WntklQf5t3H7Y7OZXS9e763MXgrCrnZOww==
-  dependencies:
-    "@nuxt/kit" "^3.2.3"
-    swiper "^9.1.0"
-
 nuxt@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.3.1.tgz#a4af3cec38bfb65c03798a7bbd38d43c78fce2ea"
@@ -3828,11 +3777,6 @@ sourcemap-codec@^1.4.8:
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
-ssr-window@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
-  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
-
 stable@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
@@ -3962,13 +3906,6 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
-
-swiper@^9.1.0:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-9.1.1.tgz#8e8d49a3667d9ef8997cddb023d913c422e72142"
-  integrity sha512-D1zArOwI6XCXCYBULPA4jTxpqp5SQtvntjinbXNZwXzj6P3KS51zSWuMarCLXq5oRISay4nX+TuShpxz8qhtbw==
-  dependencies:
-    ssr-window "^4.0.2"
 
 tapable@^1.0.0:
   version "1.1.3"
@@ -4112,7 +4049,7 @@ unhead@1.1.23:
     "@unhead/shared" "1.1.23"
     hookable "^5.4.2"
 
-unimport@^3.0.2, unimport@^3.0.3, unimport@^3.0.4:
+unimport@^3.0.2, unimport@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/unimport/-/unimport-3.0.4.tgz#b54d414b0f78673e76c9cbc2568b915c2d64b7c9"
   integrity sha512-eoof/HLiNJcIkVpnqc7sJbzKSLx39J6xTaP7E4ElgVQKeq2t9fPTkvJKcA55IJTaRPkEkDq8kcc/IZPmrypnFg==
