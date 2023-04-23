@@ -1,5 +1,10 @@
 <script lang="ts">
 const slides = ref();
+useHead(
+  {
+    title: "Главная страница ТД Рестарт",
+  }
+)
 </script>
 
 

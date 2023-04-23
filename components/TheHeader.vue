@@ -1,12 +1,12 @@
 <template>
   <section class="row header">
     <div class="cntr">
-      <a href="https://tdrestart.ru"
+      <NuxtLink to="/"
         ><img
-          src="https://tdrestart.ru/wp-content/themes/tdrestart/img/logo.png"
+          src="@/img/logo.png"
           alt="Торговый Дом Рестарт"
           class="logo"
-      /></a>
+      /></NuxtLink>
       <div class="header-contact-block">
         <p class="header-contact-row">
           <span>Aдрес: </span>Санкт-Петербург, <br />Софийская ул., дом 99

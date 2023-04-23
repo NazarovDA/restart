@@ -15,10 +15,23 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model User {
-  id String @id @default(uuid())
-  login String @unique
-  password String 
+model Product {
+  type               String
+  id                 String               @id @default(cuid())
+  name               String
+  qualification      String?
+  unit               String?
+  price1             String?
+  price2             String?
+  price3             String?
+  ProductDescription ProductDescription[]
+}
+
+model ProductDescription {
+  id        String @id
+  product Product @relation(fields: [id], references: [id])
+  short String?
+  long String?
 }
 
 // model Product {
