@@ -50,14 +50,14 @@ useHead({
 const dict = [
   { key: "Растворители", value: "Растворители" },
   { key: "Эмали", value: "Эмали" },
-  { key: "Краски", value: "Краски" },
+  { key: "Краски", value: "Шпатлевки, краски" },
   { key: "Лаки", value: "Лаки" },
   { key: "Грунты", value: "Грунты" },
   { key: "Шпатлевки", value: "Шпатлевки" },
-  { key: "Смолы", value: "Смолы" },
+  { key: "Смолы", value: "Олифы, смывки, смолы, отвердители, пудра, преобразователи ржавчины" },
   { key: "Олифы", value: "Олифы" },
-  { key: "Герметики", value: "Герметики" },
-  { key: "Монтажные пены", value: "Монтажные пены" },
+  { key: "Герметики", value: "Герметики силиконовые" },
+  { key: "Монтажные пены", value: "Пена монтажная" },
   { key: "Компоненты ЛКМ", value: "Компоненты ЛКМ" },
   { key: "Клей", value: "Клей" },
   { key: "Тара", value: "Тара" },
@@ -75,6 +75,7 @@ const dict = [
     <section class="row page-content">
       <div class="cntr clearfix">
         <aside>
+          <!--
           <div class="search-form">
             <form role="search" method="get" id="searchform" action="products">
               <input
@@ -86,7 +87,9 @@ const dict = [
               />
               <input type="submit" value="" />
             </form>
+            
           </div>
+          -->
 
           <div class="product-side-menu">
             <ul

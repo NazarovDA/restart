@@ -23,21 +23,21 @@
       <h3 style="font-weight: bold; text-align: left">
         <strong>Коммерческий отдел</strong>
       </h3>
-      <h3 style="text-align: left">Телефон:&nbsp;+7 (812) 241-15-08</h3>
+      <h3 style="text-align: left">Телефон:&nbsp;<NuxtLink to="tel:+7 (812) 241-15-08">+7 (812) 241-15-08</NuxtLink></h3>
       <h3 style="text-align: left">
-        Татинцян Армине Спартаковна &nbsp;т. +7 (921) 653-53-52, e-mail:
+        Татинцян Армине Спартаковна &nbsp;т. <NuxtLink to="tel:+7 (921) 653-53-52">+7 (921) 653-53-52</NuxtLink>, e-mail:
         <NuxtLink class="link" to="mailto:arm@tdrestart.ru"
           >arm@tdrestart.ru</NuxtLink
         >
       </h3>
       <h3 style="text-align: left">
-        Астапова Светлана Дмитриевна&nbsp; т. +7 (953) 351-67-69, e-mail:
+        Астапова Светлана Дмитриевна&nbsp; т. <NuxtLink to="tel:+7 (953) 351-67-69">+7 (953) 351-67-69</NuxtLink>, e-mail:
         <NuxtLink class="link" to="mailto:sv@tdrestart.ru"
           >sv@tdrestart.ru</NuxtLink
         >
       </h3>
       <h3>
-        Давиденко Сергей Юрьевич&nbsp; т.&nbsp;+7 (931) 360-99-94, e-mail:
+        Давиденко Сергей Юрьевич&nbsp; т.&nbsp;<NuxtLink to="tel:+7 (931) 360-99-94">+7 (931) 360-99-94</NuxtLink>, e-mail:
         <NuxtLink class="link" to="mailto:ser@tdrestart.ru"
           >ser@tdrestart.ru</NuxtLink
         >

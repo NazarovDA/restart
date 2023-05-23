@@ -1,20 +1,19 @@
 <template>
   <section class="row footer">
     <div class="cntr">
-      <img
-        src="@/img/logof.png"
-        alt=""
-        class="footer-logo"
-      />
+      <img src="@/img/logof.png" alt="" class="footer-logo" />
       <div class="footer-contact-block">
         <div class="left-side">
           <p class="footer-contact-row">
             <span>Электронная почта: </span
-            ><a href="mailto:mail@tdrestart.ru">mail@tdrestart.ru</a>
+            ><NuxtLink to="mailto:mail@tdrestart.ru"
+              >mail@tdrestart.ru</NuxtLink
+            >
           </p>
           <br />
           <p class="footer-contact-row">
-            <span>Телефон: </span>+7(812)241-15-08
+            <span>Телефон: </span
+            ><NuxtLink to="tel:+7(812)241-15-08">+7(812)241-15-08</NuxtLink>
           </p>
           <br />
           <p class="footer-contact-row">
@@ -33,6 +32,4 @@
   </section>
 </template>
 
-<style>
-
-</style>
+<style></style>

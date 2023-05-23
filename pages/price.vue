@@ -42,6 +42,7 @@ const types = {
 };
 
 const products = await $fetch("/api/products");
+console.log(1);
 
 const state = reactive({
   query: "",
@@ -58,7 +59,8 @@ function sorting() {
     variable[type] = products.body.filter(
       (chunk) =>
         type == chunk.type &&
-        chunk.name?.toLowerCase().includes(state.query.toLowerCase())
+        chunk.name?.toLowerCase().includes(state.query.toLowerCase()) &&
+        (chunk.price1 || chunk.price2 || chunk.price3)
     );
   }
 
@@ -71,7 +73,7 @@ watch(() => state.query, sorting);
 </script>
 
 <template>
-  <div class="content-wall" ref="products">
+  <div class="content-wall">
     <div class="breadcrumb">
       <p id="breadcrumbs">
         <span><span class="breadcrumb_last">Стоимость</span></span>
@@ -81,12 +83,14 @@ watch(() => state.query, sorting);
       <strong
         >В прайс-листе представлен не полный перечень товаров. Действует гибкая
         система скидок!</strong
-      ><label style="float:right">Поиск: <input v-model="state.query" /> </label><br />
+      ><label style="float: right"
+        >Поиск: <input v-model="state.query" /> </label
+      ><br />
     </p>
     <div class="table-wrapper">
       <table class="table">
         <tbody v-for="(t_value, t_key) in state.filtered" :key="t_key">
-          <tr>
+          <tr v-if="t_value?.length">
             <th v-for="(param, idx) in types[t_key]" :key="idx">
               {{ param }}
             </th>
@@ -103,13 +107,36 @@ watch(() => state.query, sorting);
             <td class="column">{{ product.price3 }}</td>
           </tr>
 
-          <tr>
+          <tr v-if="t_value?.length">
             <td style="height: 20px"></td>
           </tr>
         </tbody>
       </table>
-
-      
+      <div>
+        <p style="font-weight: bold">
+          В прайс-листе представлен не полный перечень товаров. Действует гибкая
+          система скидок!
+        </p>
+        <p>Все вопросы по телефонам: (812) 241-15-08</p>
+        <p>
+          <NuxtLink to="tel:8-921-653-53-52">8-921-653-53-52</NuxtLink> — Армине
+          <NuxtLink to="mailto:arm@tdrestart.ru"
+            >e-mail: arm@tdrestart.ru</NuxtLink
+          >
+        </p>
+        <p>
+          <NuxtLink to="tel:8-953-351-67-69">8-953-351-67-69</NuxtLink> — Армине
+          <NuxtLink to="mailto:sv@tdrestart.ru"
+            >e-mail: sv@tdrestart.ru</NuxtLink
+          >
+        </p>
+        <p>
+          <NuxtLink to="tel:8-931 360-99-94">8-931 360-99-94</NuxtLink> — Армине
+          <NuxtLink to="mailto:ser@tdrestart.ru"
+            >e-mail: ser@tdrestart.ru</NuxtLink
+          >
+        </p>
+      </div>
     </div>
   </div>
 </template>

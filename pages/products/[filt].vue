@@ -3,6 +3,17 @@ const route = useRoute();
 const filt = route.params.filt as String;
 const api_route = filt == "all" ? "" : `?target=${filt}`;
 const data = await $fetch(`/api/products${api_route}`);
+
+const pictures = await $fetch("/api/pictures", {
+  body: {
+    key: data.body.map((item) => item.name),
+  },
+  method: "POST",
+});
+
+data.body = data.body
+  .filter((item) => pictures.ans[item.name])
+  .filter((item) => item.shortDescription && item.longDescription);
 </script>
 
 <template>
@@ -16,7 +27,11 @@ const data = await $fetch(`/api/products${api_route}`);
       <div class="item">
         <div class="item-thumbnail">
           <NuxtLink :to="'/products/item/' + item.id">
-            <img width="500" height="500" :alt="item.name">
+            <img
+              :src="'/pictures/' + item.name + '.jpeg'"
+              width="500"
+              height="500"
+            />
           </NuxtLink>
         </div>
         <div class="item-title">

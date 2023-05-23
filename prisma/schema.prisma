@@ -24,15 +24,10 @@ model Product {
   price1             String?
   price2             String?
   price3             String?
-  ProductDescription ProductDescription[]
+  shortDescription String?
+  longDescription String?
 }
 
-model ProductDescription {
-  id        String @id
-  product Product @relation(fields: [id], references: [id])
-  short String?
-  long String?
-}
 
 // model Product {
 //   id              String           @id @default(cuid())

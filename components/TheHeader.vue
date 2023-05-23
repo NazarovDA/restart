@@ -17,7 +17,7 @@
           ><a href="mailto:mail@tdrestart.ru">mail@tdrestart.ru</a>
         </p>
         <br />
-        <p class="header-contact-row"><span>Телефон: </span>+7(812)241-15-08</p>
+        <p class="header-contact-row"><span>Телефон: </span><NuxtLink to="tel:+7(812)241-15-08">+7(812)241-15-08</NuxtLink></p>
         <br />
         <p class="header-contact-row">
           <span>Часы работы: </span>с 9 до 17 (Пн - Чт), (Пт) до 16
@@ -30,7 +30,7 @@
     <div class="cntr">
       <div class="phone-container">
         <div class="phone-icon"></div>
-        +7(812)241-15-08
+        <NuxtLink to="tel:+7(812)241-15-08">+7(812)241-15-08</NuxtLink>
       </div>
 
       <ul

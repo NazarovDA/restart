@@ -22,14 +22,25 @@ export default defineEventHandler(async function (event) {
   const products = await prismaClient.product.findMany({
     where,
     orderBy: {
-      type: "asc"
-    }
+      type: "asc",
+    },
+    select: {
+      type: true,
+      id: true,
+      name: true,
+      qualification: true,
+      unit: true,
+      price1: true,
+      price2: true,
+      price3: true,
+      shortDescription: true,
+      longDescription: true,
+    },
   });
-
 
   return {
     code: 200,
-    types: [...new Set( products.map(val => val.type)) ],
+    types: [...new Set(products.map((val) => val.type))],
     body: products,
-  }
+  };
 });
