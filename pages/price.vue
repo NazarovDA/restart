@@ -99,7 +99,7 @@ watch(() => state.query, sorting);
       <table class="table">
         <tbody v-for="(t_value, t_key) in state.filtered" :key="t_key">
           <tr v-if="t_value?.length">
-            <th v-for="(param, idx) in types[t_key]" :key="idx">
+            <th v-for="(param, idx) in types[t_key].slice(0,-2)" :key="idx">
               {{ param }}
             </th>
           </tr>
@@ -111,8 +111,8 @@ watch(() => state.query, sorting);
             </td>
             <td class="column">{{ product.unit }}</td>
             <td class="column">{{ product.price1 }}</td>
-            <td class="column">{{ product.price2 }}</td>
-            <td class="column">{{ product.price3 }}</td>
+            <!-- <td class="column">{{ product.price2 }}</td>
+            <td class="column">{{ product.price3 }}</td> -->
           </tr>
 
           <tr v-if="t_value?.length">
