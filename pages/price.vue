@@ -104,7 +104,7 @@ watch(() => state.query, sorting);
             </th>
           </tr>
 
-          <tr v-for="product in t_value" :key="product.id">
+          <tr class="table-row" v-for="product in t_value" :key="product.id">
             <td class="column">{{ product.name }}</td>
             <td class="column">
               {{ product.qualification }}
@@ -186,7 +186,7 @@ watch(() => state.query, sorting);
   text-align: left;
   float: none !important;
   vertical-align: top;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-top: 0;
   width: 177px;
 }
@@ -206,4 +206,13 @@ th {
 .clear_button:hover {
   background-color: rgba(0, 0, 0, 0.125);
 }
+
+.table .table-row:nth-child(2n+1) {
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.table .table-row:hover {
+  background-color: rgba(0, 128, 0, 0.25);
+}
+
 </style>
