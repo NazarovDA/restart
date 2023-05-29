@@ -69,6 +69,10 @@ function sorting() {
 
 sorting();
 
+function clear_field() {
+  state.query = "";
+}
+
 watch(() => state.query, sorting);
 </script>
 
@@ -80,12 +84,16 @@ watch(() => state.query, sorting);
       </p>
     </div>
     <p>
-      <strong
-        >В прайс-листе представлен не полный перечень товаров. Действует гибкая
-        система скидок!</strong
-      ><label style="float: right"
-        >Поиск: <input v-model="state.query" /> </label
-      ><br />
+      <strong>
+        В прайс-листе представлен не полный перечень товаров. Действует гибкая
+        система скидок!
+      </strong>
+      <label style="float: right">
+        Поиск:
+        <input v-model="state.query" />
+        <button class="clear_button" @click.prevent="clear_field()">X</button>
+      </label>
+      <br />
     </p>
     <div class="table-wrapper">
       <table class="table">
@@ -185,5 +193,17 @@ watch(() => state.query, sorting);
 
 th {
   font-weight: bold;
+}
+
+.clear_button {
+  position: relative;
+  left: -24px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid #454545;
+  cursor: pointer;
+}
+.clear_button:hover {
+  background-color: rgba(0, 0, 0, 0.125);
 }
 </style>
