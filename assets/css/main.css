@@ -998,3 +998,7 @@ img.footer-logo {
 /* 
 	All The states styles
 */
+
+#__nuxt {
+  height: 100%;
+}

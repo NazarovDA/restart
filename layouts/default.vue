@@ -19,7 +19,7 @@ useHead({
       name: "keywords",
       content: keywords.join(", "),
     },
-    { name: "viewport", content: "width=device-width", key: "viewport" },
+    { name: "viewport", content: "width=1200", key: "viewport" },
     { charset: "utf-8" },
     { property: "og:locale", content: "ru_RU" },
     { property: "og:type", content: "website" },
