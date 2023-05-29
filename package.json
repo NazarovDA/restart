@@ -11,6 +11,7 @@
     "nuxt": "^3.3.1"
   },
   "dependencies": {
+    "@artmizu/yandex-metrika-nuxt": "^1.0.1",
     "@prisma/client": "^4.11.0",
     "@types/node": "^18.15.7",
     "nuxt-simple-sitemap": "^2.4.11",
