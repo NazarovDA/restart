@@ -257,20 +257,18 @@ aside {
 
 .header-contact-block {
   text-align: right;
-  text-shadow: 1px 1px 1px white;
-  margin-top: -25px;
-  font-size: 1.5rem;
+  font-size: 12px;
 }
 
 .header-contact-row {
   display: inline-block;
   text-align: right;
-  color: #454545;
-  line-height: 1.125;
+  color: #8b8a8a;
+  line-height: 19px;
 }
 
 .header-contact-row span {
-  color: #000000;
+  color: #454545;
 }
 
 .header-contact-row a {
@@ -956,6 +954,7 @@ img.footer-logo {
 
 .footer-contact-block {
   height: 100%;
+  font-size: 12px;
   margin-left: 95px;
   float: left;
 }
