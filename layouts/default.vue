@@ -51,7 +51,7 @@ useHead({
     },
   ],
   htmlAttrs: { lang: "ru" },
-  link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
+  link: [{ rel: "icon", type: "image/svg+xml", href: "/logo_clean.svg" }],
 });
 const dict = [
   { key: "Растворители", value: "Растворители" },
