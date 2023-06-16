@@ -42,7 +42,6 @@ const types = {
 };
 
 const products = await $fetch("/api/products");
-console.log(1);
 
 const state = reactive({
   query: "",
