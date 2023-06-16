@@ -2,8 +2,15 @@
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   modules: ["nuxt-simple-sitemap", "@artmizu/yandex-metrika-nuxt"],
-  runtimeConfig: { yandexMetrika: { id: 93755986 } },
+  runtimeConfig: {
+    public: {
+      yandexMetrika: {
+        // @ts-ignore
+        id: 93787611,
+      },
+    },
+  },
   sitemap: {
-    siteUrl: 'http://tdrmarket.ru',
+    siteUrl: "http://tdrmarket.ru",
   },
 });
