@@ -14,8 +14,15 @@
     "@artmizu/yandex-metrika-nuxt": "^1.0.1",
     "@prisma/client": "^4.11.0",
     "@types/node": "^18.15.7",
+    "cuid": "^3.0.0",
+    "jose": "^4.14.4",
+    "js-sha256": "^0.9.0",
     "nuxt-simple-sitemap": "^2.4.11",
+    "primeicons": "^6.0.1",
+    "primelocale": "https://github.com/primefaces/primelocale",
+    "primevue": "^3.29.2",
     "prisma": "^4.11.0",
+    "quill": "^1.3.7",
     "zod": "^3.21.4"
   }
 }
