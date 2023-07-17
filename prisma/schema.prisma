@@ -5,15 +5,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DATABASE_URL")
-// }
-
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
+
+// datasource db {
+// provider = "sqlite"
+// url      = "file:./dev.db"
+// }
 
 model Product {
   type               String
@@ -26,48 +27,13 @@ model Product {
   price3             String?
   shortDescription String?
   longDescription String?
+  hashImage String?
 }
 
+model UserTable {
+  id String @id @default(cuid())
+  status String // admin, editor, phPerson, juPerson
 
-// model Product {
-//   id              String           @id @default(cuid())
-//   name            String
-//   price           Float
-//   code            String           @unique
-//   categorySlug    String
-//   category        Category         @relation(fields: [categorySlug], references: [slug])
-//   images          Image[]
-//   stock           Int              @default(0)
-//   color           String?
-//   description     String?
-//   characteristics Characteristics?
-// }
-
-// model Characteristics {
-//   productId String  @id
-//   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-//   data      String
-// }
-
-// model Image {
-//   id      String  @id @default(cuid())
-//   refId   String
-//   product Product @relation(fields: [refId], references: [id], onDelete: Cascade)
-//   url     String
-// }
-
-// model Category {
-//   slug     String    @id
-//   name     String
-//   products Product[]
-// }
-
-// model User {
-//   id            String    @id @default(cuid())
-//   email         String    @unique
-//   emailVerified DateTime?
-//   login         String    @unique
-//   password      String
-//   name          String
-//   rights        String
-// }
+  login String @unique
+  password String
+} 
