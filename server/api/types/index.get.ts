@@ -7,18 +7,6 @@ export default defineEventHandler(async function (event) {
 
   const where: Prisma.ProductWhereInput = {};
 
-  if (query.target) {
-    where.type = {
-      contains: query.target,
-    };
-  }
-
-  if (query.id) {
-    where.id = {
-      equals: query.id,
-    };
-  }
-
   const products = await prismaClient.product.findMany({
     where,
     orderBy: {
@@ -26,20 +14,10 @@ export default defineEventHandler(async function (event) {
     },
     select: {
       type: true,
-      id: true,
-      name: true,
-      qualification: true,
-      unit: true,
-      price1: true,
-      price2: true,
-      price3: true,
-      shortDescription: true,
-      longDescription: true,
     },
   });
 
   return {
     types: [...new Set(products.map((val) => val.type))],
-    body: products,
   };
 });

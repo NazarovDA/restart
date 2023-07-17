@@ -1,6 +1,4 @@
 import db, { prismaClient } from "@/db";
-import { Prisma, PrismaClient } from "@prisma/client";
-import * as z from "zod";
 
 export default defineEventHandler(async function (event) {
   const id = event.context?.params?.productId;
@@ -21,8 +19,5 @@ export default defineEventHandler(async function (event) {
     },
   });
 
-  return {
-    code: 200,
-    product: product
-  }
+  return product
 });
