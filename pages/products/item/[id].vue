@@ -6,27 +6,31 @@ const product = await $fetch(`/api/products/${id}`);
 </script>
 
 <template>
-  <div class="content-wall">
-    <div class="breadcrumb">
-      <p id="breadcrumbs">
-        <span
-          ><span rel="v:child" typeof="v:Breadcrumb"
-            ><NuxtLink to="/product/items/all"></NuxtLink>
+  <ClientOnly>
+    <div class="content-wall">
+      <div class="breadcrumb">
+        <p id="breadcrumbs">
+          <span>
+            <NuxtLink to="/product/items/all"></NuxtLink>
+            <NuxtLink :to="'/product/items/' + product.type">
+              {{ product.type }}
+            </NuxtLink>
             -
-            <span rel="v:child" typeof="v:Breadcrumb"
-              ><NuxtLink :to="'/product/items/' + product.product?.type">{{
-                product.product?.type
-              }}</NuxtLink>
-              -
-              <span class="breadcrumb_last">
-                {{ product.product?.name }}
-              </span></span
-            ></span
-          ></span
-        >
-      </p>
+            <span class="breadcrumb_last">
+              {{ product.name }}
+            </span>
+          </span>
+        </p>
+      </div>
+      <div class="short-content-container clearfix">
+        <img
+          :src="'/pictures/' + product.name + '.jpeg'"
+          width="220"
+          height="107"
+        />
+        <div v-html="product.shortDescription"></div>
+      </div>
+      <div v-html="product.longDescription"></div>
     </div>
-    <div v-html="product.product?.shortDescription"></div>
-    <div v-html="product.product?.longDescription"></div>
-  </div>
+  </ClientOnly>
 </template>
