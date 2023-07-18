@@ -7,7 +7,7 @@ const product = await $fetch(`/api/products/${id}`);
 
 <template>
   <ClientOnly>
-    <div class="content-wall">
+    <div v-if="product" class="content-wall">
       <div class="breadcrumb">
         <p id="breadcrumbs">
           <span>
@@ -25,10 +25,11 @@ const product = await $fetch(`/api/products/${id}`);
       <div class="short-content-container clearfix">
         <img
           :src="'/pictures/' + product.name + '.jpeg'"
-          width="220"
-          height="107"
+          width="307"
+          height="165"
+          style="float: left;"
         />
-        <div v-html="product.shortDescription"></div>
+        <span v-html="product.shortDescription"></span>
       </div>
       <div v-html="product.longDescription"></div>
     </div>
