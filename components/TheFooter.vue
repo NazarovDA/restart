@@ -1,3 +1,8 @@
+<script setup lang="ts">
+  import { Settings } from 'types/settings';
+  const props = defineProps<{settings: Settings}>()
+</script>
+
 <template>
   <section class="row footer">
     <div class="cntr">
@@ -5,25 +10,24 @@
       <div class="footer-contact-block">
         <div class="left-side">
           <p class="footer-contact-row">
-            <span>Электронная почта: </span
-            ><NuxtLink to="mailto:mail@tdrestart.ru"
-              >mail@tdrestart.ru</NuxtLink
-            >
+            <span>Электронная почта: </span>
+            <NuxtLink :to="'mailto:'+props.settings.email">
+              {{ props.settings.email }}
+            </NuxtLink>
           </p>
           <br />
           <p class="footer-contact-row">
-            <span>Телефон: </span
-            ><NuxtLink to="tel:+7(812)241-15-08">+7(812)241-15-08</NuxtLink>
+            <span>Телефон: </span><NuxtLink :to="'tel:'+props.settings.phone">{{ props.settings.phone }}</NuxtLink>
           </p>
           <br />
           <p class="footer-contact-row">
-            <span>Часы работы: </span>с 9 до 17 (Пн - Чт), (Пт) до 16
+            <span>Часы работы: </span> {{ props.settings.timeOfWork }}
           </p>
           <br />
         </div>
         <div class="right-side">
           <p class="footer-contact-row">
-            <span>Aдрес: </span>Санкт-Петербург, <br />Софийская ул., дом 99
+            <span>Aдрес: </span> {{ props.settings.address }}
           </p>
           <br />
         </div>
