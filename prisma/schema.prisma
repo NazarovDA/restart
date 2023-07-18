@@ -35,5 +35,10 @@ model UserTable {
   status String // admin, editor, phPerson, juPerson
 
   login String @unique
-  password String
+  password String // @db.Char(64)
 } 
+
+model Settings {
+  param String @unique @db.VarChar(20)
+  value String
+}
