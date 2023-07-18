@@ -7,6 +7,16 @@ import Column from "primevue/column";
 
 const loading = ref(false);
 
+try {
+  if (!checkRules(readJWT(localStorage.getItem("jwt")!), "Product.Edit")) {
+    await navigateTo("/auth");
+  }
+} catch (e) {
+  await navigateTo("/auth");
+}
+
+const layout = "admin";
+
 const lazyParams = reactive({
   take: 5,
   skip: 0,
@@ -49,28 +59,30 @@ await lazyLoadData();
 </script>
 
 <template>
-  <ClientOnly>
-    <Toast />
-    <DataTable
-      paginator
-      lazy
-      :value="users"
-      :rowsPerPageOptions="[5, 10, 20, 50]"
-      :rows="5"
-      :totalRecords="count._count.id"
-      paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-      currentPageReportTemplate="от {first} до {last} из {totalRecords}"
-      tableStyle="min-width: 50rem"
-      filterDisplay="row"
-      :loading="loading"
-      @page="onPage($event)"
-      @sort="onSort($event)"
-      @filter="onFilter($event)"
-      removableSort
-    >
-      <Column header="Id" field="id"></Column>
-      <Column header="Статус" field="status"></Column>
-      <Column header="Логин" field="login"></Column>
-    </DataTable>
-  </ClientOnly>
+  <NuxtLayout :name="layout">
+    <ClientOnly>
+      <Toast />
+      <DataTable
+        paginator
+        lazy
+        :value="users"
+        :rowsPerPageOptions="[5, 10, 20, 50]"
+        :rows="5"
+        :totalRecords="count._count.id"
+        paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+        currentPageReportTemplate="от {first} до {last} из {totalRecords}"
+        tableStyle="min-width: 50rem"
+        filterDisplay="row"
+        :loading="loading"
+        @page="onPage($event)"
+        @sort="onSort($event)"
+        @filter="onFilter($event)"
+        removableSort
+      >
+        <Column header="Id" field="id"></Column>
+        <Column header="Статус" field="status"></Column>
+        <Column header="Логин" field="login"></Column>
+      </DataTable>
+    </ClientOnly>
+  </NuxtLayout>
 </template>

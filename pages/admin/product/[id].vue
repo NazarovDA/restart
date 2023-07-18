@@ -21,6 +21,8 @@ try {
   await navigateTo("/auth");
 }
 
+const layout = "admin";
+
 const router = useRouter();
 const route = useRoute();
 const id = route.params.id as string;
@@ -109,91 +111,93 @@ state.isLoading = false;
 
 <template>
   <ClientOnly>
-    <BlockUI :blocked="state.isLoading">
-      <div class="content-wall">
-        <table>
-          <tr>
-            <td>
-              <Image
-                :src="'/pictures/' + state.product.hashImage"
-                height="107"
-              />
-            </td>
-            <td>
-              <FileUpload
-                auto
-                mode="basic"
-                name="demo[]"
-                accept="image/*"
-                customUpload
-                @uploader="customBase64Uploader"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Наименование</td>
-            <td>
-              <InputText
-                placeholder="Наименование"
-                v-model="state.product.name"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Тип продукции</td>
-            <td>
-              <Dropdown v-model="state.product.type" :options="state.types" />
-            </td>
-          </tr>
-          <tr>
-            <td>Единицы измерения</td>
-            <td>
-              <Dropdown v-model="state.product.unit" :options="state.units" />
-            </td>
-          </tr>
-          <tr>
-            <td>Цена</td>
-            <td>
-              <table>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>
-                    <InputText v-model="state.product.price1" />
-                  </td>
-                  <td>
-                    <InputText v-model="state.product.price2" />
-                  </td>
-                  <td>
-                    <InputText v-model="state.product.price3" />
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>Короткое описание</td>
-            <td><Editor v-model="state.product.shortDescription" /></td>
-          </tr>
-          <tr>
-            <td>Длинное описание</td>
-            <td><Editor v-model="state.product.longDescription" /></td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <Button
-                label="Сохранить"
-                icon="pi pi-check"
-                @click="onSave"
-                :disabled="state.isLoading"
-              />
-            </td>
-          </tr>
-        </table>
-      </div>
-    </BlockUI>
+    <NuxtLayout :name="layout">
+      <BlockUI :blocked="state.isLoading">
+        <div class="content-wall">
+          <table>
+            <tr>
+              <td>
+                <Image
+                  :src="'/pictures/' + state.product.hashImage"
+                  height="107"
+                />
+              </td>
+              <td>
+                <FileUpload
+                  auto
+                  mode="basic"
+                  name="demo[]"
+                  accept="image/*"
+                  customUpload
+                  @uploader="customBase64Uploader"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Наименование</td>
+              <td>
+                <InputText
+                  placeholder="Наименование"
+                  v-model="state.product.name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Тип продукции</td>
+              <td>
+                <Dropdown v-model="state.product.type" :options="state.types" />
+              </td>
+            </tr>
+            <tr>
+              <td>Единицы измерения</td>
+              <td>
+                <Dropdown v-model="state.product.unit" :options="state.units" />
+              </td>
+            </tr>
+            <tr>
+              <td>Цена</td>
+              <td>
+                <table>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <InputText v-model="state.product.price1" />
+                    </td>
+                    <td>
+                      <InputText v-model="state.product.price2" />
+                    </td>
+                    <td>
+                      <InputText v-model="state.product.price3" />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>Короткое описание</td>
+              <td><Editor v-model="state.product.shortDescription" /></td>
+            </tr>
+            <tr>
+              <td>Длинное описание</td>
+              <td><Editor v-model="state.product.longDescription" /></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <Button
+                  label="Сохранить"
+                  icon="pi pi-check"
+                  @click="onSave"
+                  :disabled="state.isLoading"
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </BlockUI>
+    </NuxtLayout>
   </ClientOnly>
 </template>

@@ -9,7 +9,17 @@ import { useToast } from "primevue/usetoast";
 
 import BlockUI from "primevue/blockui";
 
+try {
+  if (!checkRules(readJWT(localStorage.getItem("jwt")!), "Product.Edit")) {
+    await navigateTo("/auth");
+  }
+} catch (e) {
+  await navigateTo("/auth");
+}
+
 const toast = useToast();
+
+const layout = "admin";
 
 const state = reactive({
   isLoading: true,
@@ -53,50 +63,52 @@ state.isLoading = false;
 
 <template>
   <ClientOnly>
-    <Toast />
-    <BlockUI :blocked="state.isLoading">
-      <div class="content-wall">
-        <table>
-          <tr>
-            <td>Логин</td>
-            <td>
-              <InputText
-                v-model="state.newUser.login"
-                placeholder="Введите логин"
-              ></InputText>
-            </td>
-          </tr>
-          <tr>
-            <td>Пароль</td>
-            <td>
-              <Password
-                name="password"
-                v-model="state.newUser.password"
-                :feedback="false"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Статус пользователя</td>
-            <td>
-              <Dropdown
-                v-model="state.newUser.status"
-                :options="['editor', 'phPerson', 'juPerson']"
-              ></Dropdown>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <Button
-                label="Сохранить"
-                icon="pi pi-check"
-                @click="onSave"
-                :disabled="state.isLoading"
-              />
-            </td>
-          </tr>
-        </table>
-      </div>
-    </BlockUI>
+    <NuxtLayout :name="layout">
+      <Toast />
+      <BlockUI :blocked="state.isLoading">
+        <div class="content-wall">
+          <table>
+            <tr>
+              <td>Логин</td>
+              <td>
+                <InputText
+                  v-model="state.newUser.login"
+                  placeholder="Введите логин"
+                ></InputText>
+              </td>
+            </tr>
+            <tr>
+              <td>Пароль</td>
+              <td>
+                <Password
+                  name="password"
+                  v-model="state.newUser.password"
+                  :feedback="false"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Статус пользователя</td>
+              <td>
+                <Dropdown
+                  v-model="state.newUser.status"
+                  :options="['editor', 'phPerson', 'juPerson']"
+                ></Dropdown>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <Button
+                  label="Сохранить"
+                  icon="pi pi-check"
+                  @click="onSave"
+                  :disabled="state.isLoading"
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </BlockUI>
+    </NuxtLayout>
   </ClientOnly>
 </template>

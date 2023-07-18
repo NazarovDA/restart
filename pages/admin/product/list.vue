@@ -11,6 +11,8 @@ try {
   await navigateTo("/auth");
 }
 
+const layout="admin"
+
 const loading = ref(false);
 
 const lazyParams = reactive({
@@ -83,6 +85,7 @@ await lazyLoadData();
 </script>
 
 <template>
+  <NuxtLayout :name="layout">
   <DataTable
     paginator
     lazy
@@ -121,4 +124,5 @@ await lazyLoadData();
         /> </template
     ></Column>
   </DataTable>
+</NuxtLayout>
 </template>
