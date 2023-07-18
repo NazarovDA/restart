@@ -76,11 +76,13 @@ const dict = [
   },
   { key: "Декоративные покрытия", value: "Декоративные покрытия" },
 ];
+
+const settings = await getSettings()
 </script>
 
 <template>
   <div id="wrapper">
-    <TheHeader />
+    <TheHeader :settings="settings" />
     <section class="row page-content">
       <div class="cntr clearfix">
         <aside>
@@ -139,6 +141,6 @@ const dict = [
         </div>
       </div>
     </section>
-    <TheFooter />
+    <TheFooter :settings="settings"/>
   </div>
 </template>
