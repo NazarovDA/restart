@@ -17,9 +17,6 @@ export default defineEventHandler(async function (event) {
   const body = await validate(AuthPostBody, await readBody(event), {
     path: ["body"],
   });
-  const headers = await getHeaders(event);
-
-  console.log(headers);
 
   const select = await prismaClient.userTable.findUnique({
     where: {
@@ -27,7 +24,6 @@ export default defineEventHandler(async function (event) {
     },
   });
 
-  console.log(body.pass);
 
   if (!select || select.password != body.pass) {
     setResponseStatus(event, 401);

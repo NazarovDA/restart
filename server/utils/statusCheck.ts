@@ -12,7 +12,7 @@ export default async function statusCheck(jwt: string, status: string) {
       return false;
     }
   } catch (e) {
-    console.log(e)
+    console.error(e)
     return false;
   }
 }

@@ -18,7 +18,6 @@ export const newUserBody = z.object({
 export type newUserBody = z.infer<typeof newUserBody>;
 
 export default defineEventHandler(async function (event) {
-  console.log(await readBody(event));
   const body = await validate(newUserBody, await readBody(event), {
     path: ["body"],
   });

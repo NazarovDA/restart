@@ -60,11 +60,9 @@ async function customBase64Uploader(event: FileUploadRemoveUploadedFile) {
   const reader = new FileReader();
   const objectURL = URL.createObjectURL(file);
   let blob = await fetch(objectURL).then((r) => r.blob()); //blob:url
-  console.log(file);
   reader.readAsDataURL(blob);
   reader.onloadend = function () {
     const base64data = reader.result as string;
-    console.log(base64data);
     state.newImageBase64 = base64data;
   };
 }
@@ -99,8 +97,6 @@ async function onSave() {
       } as Product,
     },
   });
-
-  console.log(productResult);
 
   await navigateTo("/admin/product/list");
   // state.isLoading = false;
@@ -168,10 +164,10 @@ state.isLoading = false;
                       <InputText v-model="state.product.price1" />
                     </td>
                     <td>
-                      <InputText v-model="state.product.price2" />
+                      <InputText v-model="state.product.price2" class="p-invalid"/>
                     </td>
                     <td>
-                      <InputText v-model="state.product.price3" />
+                      <InputText v-model="state.product.price3" class="p-invalid"/>
                     </td>
                   </tr>
                 </table>

@@ -46,8 +46,6 @@ export default class APIHandler {
   }
 }
 
-console.log(APIHandler);
-
 // export default async function getList(body: Body): Promise<Data> {
 // return await $fetch("/api/admin/product/list", {
 // body: body,
