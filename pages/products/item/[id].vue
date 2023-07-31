@@ -3,6 +3,10 @@ const route = useRoute();
 const id = route.params.id as String;
 
 const product = await $fetch(`/api/products/${id}`);
+
+useHead({
+  title: product?.name,
+})
 </script>
 
 <template>
