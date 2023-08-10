@@ -17,7 +17,7 @@ useHead({
   title: state.product?.name,
 });
 
-console.log(1);
+// console.log(1);
 </script>
 
 <template>
