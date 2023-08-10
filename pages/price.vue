@@ -48,6 +48,7 @@ const state = reactive({
   filtered: {} as {
     [key in keyof typeof types]?: (typeof products.body)[number][];
   },
+  managers: await getManagers(),
 });
 
 function sorting() {
@@ -71,6 +72,8 @@ sorting();
 function clear_field() {
   state.query = "";
 }
+
+const settings = await getSettings();
 
 watch(() => state.query, sorting);
 </script>
@@ -98,7 +101,7 @@ watch(() => state.query, sorting);
       <table class="table">
         <tbody v-for="(t_value, t_key) in state.filtered" :key="t_key">
           <tr v-if="t_value?.length">
-            <th v-for="(param, idx) in types[t_key].slice(0,-2)" :key="idx">
+            <th v-for="(param, idx) in types[t_key].slice(0, -2)" :key="idx">
               {{ param }}
             </th>
           </tr>
@@ -124,23 +127,17 @@ watch(() => state.query, sorting);
           В прайс-листе представлен не полный перечень товаров. Действует гибкая
           система скидок!
         </p>
-        <p>Все вопросы по телефонам: (812) 241-15-08</p>
         <p>
-          <NuxtLink to="tel:8-921-653-53-52">8-921-653-53-52</NuxtLink> — Армине
-          <NuxtLink to="mailto:arm@tdrestart.ru"
-            >e-mail: arm@tdrestart.ru</NuxtLink
-          >
+          Все вопросы по телефонам:
+          <NuxtLink :to="'tel:' + settings.phone">{{
+            settings.phone
+          }}</NuxtLink>
         </p>
-        <p>
-          <NuxtLink to="tel:8-953-351-67-69">8-953-351-67-69</NuxtLink> — Армине
-          <NuxtLink to="mailto:sv@tdrestart.ru"
-            >e-mail: sv@tdrestart.ru</NuxtLink
-          >
-        </p>
-        <p>
-          <NuxtLink to="tel:8-931 360-99-94">8-931 360-99-94</NuxtLink> — Армине
-          <NuxtLink to="mailto:ser@tdrestart.ru"
-            >e-mail: ser@tdrestart.ru</NuxtLink
+        <p v-for="manager in state.managers">
+          <NuxtLink :to="'tel:' + manager.phone">{{ manager.phone }}</NuxtLink>
+          — {{ manager.fio }}
+          <NuxtLink :to="'mailto:' + manager.email"
+            >e-mail: {{ manager.email }}</NuxtLink
           >
         </p>
       </div>
@@ -206,12 +203,11 @@ th {
   background-color: rgba(0, 0, 0, 0.125);
 }
 
-.table .table-row:nth-child(2n+1) {
+.table .table-row:nth-child(2n + 1) {
   background-color: rgba(0, 0, 0, 0.125);
 }
 
 .table .table-row:hover {
   background-color: rgba(0, 128, 0, 0.25);
 }
-
 </style>

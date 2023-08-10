@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const state = reactive({
+  settings: await getSettings(),
+  managers: await getManagers(),
+});
+</script>
+
 <template>
   <div class="content">
     <div class="content-up-stripe"></div>
@@ -8,7 +15,7 @@
         </p>
       </div>
       <h3 style="text-align: left">Наш склад находится по адресу:</h3>
-      <h3>Санкт-Петербург, Софийская улица, дом 99</h3>
+      <h3>{{ state.settings.address }}</h3>
       <h3>
         <span style="text-decoration: underline"
           ><span style="color: #799a19; text-decoration: underline"
@@ -23,30 +30,22 @@
       <h3 style="font-weight: bold; text-align: left">
         <strong>Коммерческий отдел</strong>
       </h3>
-      <h3 style="text-align: left">Телефон:&nbsp;<NuxtLink to="tel:+7 (812) 241-15-08">+7 (812) 241-15-08</NuxtLink></h3>
       <h3 style="text-align: left">
-        Татинцян Армине Спартаковна &nbsp;т. <NuxtLink to="tel:+7 (921) 653-53-52">+7 (921) 653-53-52</NuxtLink>, e-mail:
-        <NuxtLink class="link" to="mailto:arm@tdrestart.ru"
-          >arm@tdrestart.ru</NuxtLink
-        >
+        Телефон:
+        <NuxtLink :to="'tel:' + state.settings.phone">{{
+          state.settings.phone
+        }}</NuxtLink>
       </h3>
-      <h3 style="text-align: left">
-        Астапова Светлана Дмитриевна&nbsp; т. <NuxtLink to="tel:+7 (953) 351-67-69">+7 (953) 351-67-69</NuxtLink>, e-mail:
-        <NuxtLink class="link" to="mailto:sv@tdrestart.ru"
-          >sv@tdrestart.ru</NuxtLink
-        >
-      </h3>
-      <h3>
-        Давиденко Сергей Юрьевич&nbsp; т.&nbsp;<NuxtLink to="tel:+7 (931) 360-99-94">+7 (931) 360-99-94</NuxtLink>, e-mail:
-        <NuxtLink class="link" to="mailto:ser@tdrestart.ru"
-          >ser@tdrestart.ru</NuxtLink
-        >
+      <h3 v-for="manager in state.managers" style="text-align: left">
+        {{ manager.fio }} &nbsp;т.
+        <NuxtLink :to="'tel:' + manager.phone">{{ manager.phone }}</NuxtLink
+        >, e-mail:
+        <NuxtLink class="link" :to="'mailto:' + manager.email">{{
+          manager.email
+        }}</NuxtLink>
       </h3>
       <p>&nbsp;</p>
-      <h3>
-        Режим работы офиса и склада: c&nbsp;9-00 до 17-00&nbsp;(Пн, Вт, Ср, Чт),
-        с 9-00 до 16-00 (Пт)
-      </h3>
+      <h3><span>Часы работы: </span> {{ state.settings.timeOfWork }}</h3>
     </div>
     <div class="content-down-stripe"></div>
   </div>
