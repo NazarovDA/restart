@@ -19,5 +19,14 @@ export default defineEventHandler(async function (event) {
     },
   });
 
-  return product
+  const similar = await prismaClient.product.findMany({
+    where: {
+      name: {
+        contains: product!.name
+      }
+    }
+  })
+  return {
+    product: product, similar: similar
+  }
 });
