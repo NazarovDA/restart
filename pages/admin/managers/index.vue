@@ -47,6 +47,7 @@ async function onSave() {
         <td>Почта</td>
         <td><InputText v-model="state.managers![key].email" /></td>
       </tr>
+      <hr>
     </table>
     <table>
       <td colspan="2">
