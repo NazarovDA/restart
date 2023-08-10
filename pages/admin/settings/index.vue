@@ -28,7 +28,6 @@ async function onSave() {
 </script>
 
 <template>
-  {{ state.settings }}
   <ClientOnly>
     <NuxtLayout :name="layout">
       <table>
