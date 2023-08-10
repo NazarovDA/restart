@@ -71,6 +71,26 @@ if (checkRules(readJWT(localStorage.getItem("jwt")!), "Settings.Edit")) {
           await navigateTo("/admin/settings");
         },
       },
+      {
+        label: "Менеджеры",
+        icon: "pi pi-fw pi-user",
+        items: [
+          {
+            label: "Изменить существующих",
+            icon: "pi pi-fw pi-user-edit",
+            command: async() => {
+              await navigateTo('/admin/managers')
+            }
+          }
+          // {
+          //   label: "Добавить",
+          //   icon: "pi pi-fw pi-user-plus",
+          //   command: async() => {
+          //     await navigateTo('/admin/managers/new')
+          //   }
+          // }
+        ]
+      }
     ],
   });
 }
